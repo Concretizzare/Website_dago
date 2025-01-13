@@ -157,6 +157,7 @@ body {
 
 /* Hero Section Styling */
 .hero {
+    position: relative;
     background-color: var(--primary);
     padding: calc(var(--padding-lg) + 80px) var(--padding-base);
     text-align: center;
@@ -167,6 +168,30 @@ body {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: var(--padding-lg);
+}
+
+/* New Styling for Images */
+.hero-images {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: -1; /* To place the images behind the content */
+}
+
+.hero-image-left,
+.hero-image-right {
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
+}
+
+/* Specular Transformation for the Right Image */
+.hero-image-right {
+    transform: translateY(-50%) scaleX(-1); /* Flip the right image horizontally */
 }
 
 .hero h1 {
@@ -779,9 +804,24 @@ body {
         height: 40px;
     }
 
-    /* Hero Section Adjustments */
-    .hero {
-        padding: calc(var(--padding-base) + 60px) var(--padding-base);
+    /* Hero Section Mobile Adjustments */
+@media (max-width: var(--breakpoint-lg)) {
+    .hero-images {
+        top: 40%; /* Posizionamento più alto per dispositivi mobili */
+        justify-content: center; /* Allineamento centrale per le immagini */
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .hero-image-left,
+    .hero-image-right {
+        width: 60px; /* Ridimensionamento delle immagini */
+        height: auto;
+    }
+
+    /* Specularità per la versione mobile (la logica rimane invariata) */
+    .hero-image-right {
+        transform: translateY(-50%) scaleX(-1); /* Resta speculare */
     }
 
     .hero-content {
@@ -799,10 +839,31 @@ body {
     .hero h3 {
         font-size: 1rem;
     }
+}
 
-    .hero img {
-        margin-bottom: var(--padding-base);
+@media (max-width: var(--breakpoint-sm)) {
+    /* Ancora più piccola per schermi mobili */
+    .hero-images {
+        top: 30%; /* Posizionamento più alto su schermi molto piccoli */
     }
+
+    .hero-image-left,
+    .hero-image-right {
+        width: 50px; /* Ulteriore ridimensionamento per schermi piccoli */
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1rem;
+    }
+
+    .hero h3 {
+        font-size: 0.9rem;
+    }
+}
 
     /* Services Section Adjustments */
     .services {
