@@ -162,12 +162,7 @@ body {
     padding: calc(var(--padding-lg) + 80px) var(--padding-base);
     text-align: center;
     color: var(--white);
-}
-
-.hero-content {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: var(--padding-lg);
+    overflow: hidden; /* Assicura che le immagini non escano dal contenitore */
 }
 
 /* Contenitore per le immagini */
@@ -179,21 +174,40 @@ body {
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between; /* Posiziona le immagini ai lati */
+    padding: 0 20px; /* Aggiungi un po' di spazio laterale */
     width: 100%;
-    z-index: -1; /* Per farle stare dietro il testo */
 }
 
 /* Immagine a sinistra */
-.hero-image-left {
-    width: 50px; /* Dimensione immagine sinistra */
-    height: auto;
+.hero-image-left,
+.hero-image-right {
+    width: 260px; /* Larghezza desiderata per le immagini */
+    height: 280px; /* Altezza fissa */
+    transition: transform 0.3s ease; /* Aggiunta transizione per l'animazione di zoom */
 }
 
 /* Immagine a destra (specchiata) */
 .hero-image-right {
-    width: 50px; /* Dimensione immagine destra */
-    height: auto;
-    transform: translateY(-50%) scaleX(-1); /* Specchia l'immagine orizzontalmente */
+    transform: scaleX(-1); /* Specchia orizzontalmente l'immagine senza influenzare l'altezza */
+}
+
+/* Effetto di zoom quando si passa sopra con il mouse */
+.hero-image-left:hover,
+.hero-image-right:hover {
+    transform: scale(1.1); /* Zoom dell'immagine */
+}
+
+/* Mantenere la specularità sulla destra durante il passaggio sopra */
+.hero-image-right:hover {
+    transform: scaleX(-1) scale(1.1); /* Applica zoom solo orizzontale */
+}
+
+/* Contenuto centrale */
+.hero-content {
+    position: relative;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--padding-lg);
 }
 
 /* Modifica dimensioni dei testi */
@@ -210,13 +224,6 @@ body {
 .hero h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-}
-
-.hero img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: var(--padding-lg);
-    border-radius: var(--border-radius);
 }
 
 /* Services Section Styling */
