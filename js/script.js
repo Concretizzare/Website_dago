@@ -87,19 +87,33 @@ const CONSTANTS = {
      */
     setupEventListeners() {
       try {
-        // Hamburger click and keyboard events
-        this.hamburger.addEventListener('click', () => this.toggleMenu());
-        this.hamburger.addEventListener('keydown', (e) => this.handleHamburgerKeydown(e));
+          // Hamburger click and keyboard events
+          this.hamburger.addEventListener('click', () => this.toggleMenu());
+          this.hamburger.addEventListener('keydown', (e) => this.handleHamburgerKeydown(e));
   
-        // Navigation link click events
-        const navLinkItems = this.navLinks.querySelectorAll('a');
-        navLinkItems.forEach((link) => {
-          link.addEventListener('click', () => this.closeMenu());
-        });
+          // Navigation link click events (close the menu and scroll)
+const navLinkItems = this.navLinks.querySelectorAll('a');
+      navLinkItems.forEach((link) => {
+          link.addEventListener('click', (event) => {
+              event.preventDefault(); // Prevent default anchor link behavior
+
+              // Get the target section
+              const sectionId = link.getAttribute('href').substring(1); // Get the ID without '#'
+              const section = document.getElementById(sectionId);
+
+              // Close the menu first
+              this.closeMenu();
+
+              // Smooth scroll to the section
+              if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+              }
+          });
+      });
       } catch (error) {
-        console.error('Error setting up event listeners:', error);
+          console.error('Error setting up event listeners:', error);
       }
-    }
+  }
   
     /**
      * Toggle the navigation menu state
@@ -148,6 +162,7 @@ const CONSTANTS = {
     handleMenuClose() {
       document.removeEventListener('keydown', this.trapTabKey);
       document.removeEventListener('click', this.handleOutsideClick);
+      this.body.classList.remove(CONSTANTS.CLASSES.NO_SCROLL);
       this.hamburger.focus();
     }
   
@@ -247,6 +262,27 @@ const CONSTANTS = {
       }
     }
   }
+
+/**
+ * Toggle the hamburger menu when the logo is clicked
+ */
+function toggleHamburgerMenu() {
+  const hamburger = document.getElementById(CONSTANTS.SELECTORS.HAMBURGER);
+  const navLinks = document.getElementById(CONSTANTS.SELECTORS.NAV_LINKS);
+  const body = document.querySelector(CONSTANTS.SELECTORS.BODY);
+
+  if (navLinks.classList.contains(CONSTANTS.CLASSES.OPEN)) {
+      navLinks.classList.remove(CONSTANTS.CLASSES.OPEN);
+      hamburger.classList.remove(CONSTANTS.CLASSES.ACTIVE);
+      hamburger.setAttribute('aria-expanded', 'false');
+      body.classList.remove(CONSTANTS.CLASSES.NO_SCROLL);
+  } else {
+      navLinks.classList.add(CONSTANTS.CLASSES.OPEN);
+      hamburger.classList.add(CONSTANTS.CLASSES.ACTIVE);
+      hamburger.setAttribute('aria-expanded', 'true');
+      body.classList.add(CONSTANTS.CLASSES.NO_SCROLL);
+  }
+}
   
   // Initialize navigation when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {

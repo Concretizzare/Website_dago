@@ -13,9 +13,9 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="logo">
-            <img src="foto/logo.jpg" alt="Logo D'Agostino Giovanni e Marco" class="logo-img">
-        </a>
+        <a href="javascript:void(0);" class="logo" onclick="toggleHamburgerMenu()">
+            <img src="foto/logo.png" alt="Logo D'Agostino Giovanni e Marco" class="logo-img">
+        </a>        
         <!-- Hamburger Menu -->
         <div class="hamburger" id="hamburger" aria-label="Menu di Navigazione" aria-expanded="false" role="button" tabindex="0">
             <div></div>
@@ -36,12 +36,14 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-images">
+            <img src="foto/logo.png" alt="Logo sinistro" class="hero-image-left">
+            <img src="foto/logo.png" alt="Logo destro speculare" class="hero-image-right">
+        </div>
         <div class="hero-content">
             <h1>D'AGOSTINO GIOVANNI E MARCO</h1>
             <h2>SERVIZIO ASSISTENZA TECNICA CALDAIE E STUFE</h2>
             <h3>IMPIANTI IDROTERMOSANITARI - GAS - CONDIZIONAMENTO</h3>
-            <!-- Puoi aggiungere un'immagine Hero se desideri -->
-            <!-- <img src="images/hero-image.jpg" alt="Immagine Hero" loading="lazy"> -->
         </div>
     </section>
 
@@ -59,7 +61,7 @@
                     </svg>
                 </div>
                 <h3>Assistenza Tecnica</h3>
-                <p>Servizio professionale di assistenza e manutenzione per caldaie e stufe di tutte le marche. Interventi rapidi e garantiti in tutta la provincia.</p>
+                <p>Servizio professionale di assistenza e manutenzione per caldaie e stufe dei nostri marchi di fiducia. Interventi rapidi e garantiti in tutta la provincia.</p>
             </div>
             
             <div class="service-card">
@@ -113,7 +115,7 @@
                     </a>
                 </div>
                 <div class="brand-card">
-                    <a href="https://www.dalessandrotermomeccanica.it" target="_blank" rel="noopener noreferrer" class="brand-link">
+                    <a href="https://caldaiedalessandro.it" target="_blank" rel="noopener noreferrer" class="brand-link">
                         <img src="foto/dale.jpeg" alt="Logo D'Alessandro Termomeccanica" class="brand-logo" loading="lazy">
                     </a>
                 </div>
@@ -222,19 +224,17 @@
         Via Valle Vignale<br>
         64024 Notaresco (TE)</p>
     
-        <h3>Diritti dell'Interessato</h3>
-        <p>In qualità di interessato, hai il diritto di ottenere l'accesso ai tuoi dati personali, la rettifica o la cancellazione degli stessi, la limitazione del trattamento o di opporti allo stesso.</p>
     </section>
     
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2024 D'Agostino Giovanni e Marco - P.IVA [Inserire P.IVA]</p>
+        <p>© 2024 D'Agostino Giovanni e Marco - P.IVA 01979250675</p>
         <p>Sede: Via Valle Vignale - 64024 Notaresco (TE)</p>
     </footer>
     
     <!-- Pulsante WhatsApp fluttuante -->
     <a href="https://wa.me/393468088624" class="floating-whatsapp" target="_blank" rel="noopener noreferrer">
-        💬
+        <img src="foto\Digital_Glyph_White.png" alt="WhatsApp Logo" style="width: 50px; height: 50px;">
     </a>
 
     <!-- Collegamento al file JavaScript -->
