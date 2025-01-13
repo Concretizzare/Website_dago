@@ -170,7 +170,7 @@ body {
     padding: var(--padding-lg);
 }
 
-/* New Styling for Images */
+/* Contenitore per le immagini */
 .hero-images {
     position: absolute;
     top: 50%;
@@ -178,22 +178,25 @@ body {
     right: 0;
     transform: translateY(-50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Posiziona le immagini ai lati */
     width: 100%;
-    z-index: -1; /* To place the images behind the content */
+    z-index: -1; /* Per farle stare dietro il testo */
 }
 
-.hero-image-left,
-.hero-image-right {
-    width: 50px; /* Adjust the size as needed */
+/* Immagine a sinistra */
+.hero-image-left {
+    width: 50px; /* Dimensione immagine sinistra */
     height: auto;
 }
 
-/* Specular Transformation for the Right Image */
+/* Immagine a destra (specchiata) */
 .hero-image-right {
-    transform: translateY(-50%) scaleX(-1); /* Flip the right image horizontally */
+    width: 50px; /* Dimensione immagine destra */
+    height: auto;
+    transform: translateY(-50%) scaleX(-1); /* Specchia l'immagine orizzontalmente */
 }
 
+/* Modifica dimensioni dei testi */
 .hero h1 {
     font-size: var(--font-size-xl);
     margin-bottom: 0.5rem;
