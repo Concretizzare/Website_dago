@@ -1352,8 +1352,15 @@ textarea.form-control {
     }
 
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem; /* 0.2rem bigger than original 1.5rem */
         line-height: 1.3;
+        margin-bottom: 1rem; /* Reduced to maintain original background size */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added subtle shadow under title */
+    }
+
+    .hero h2 {
+        font-size: 1.1rem;
+        margin-top: 2rem; /* Added top margin to create space after title */
     }
 
     .hero-image-left,
@@ -1433,11 +1440,14 @@ textarea.form-control {
     }
 
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.7rem; /* 0.2rem bigger than original 1.5rem */
+        line-height: 1.3;
+        margin-bottom: 1rem; /* Reduced to maintain original background size */
     }
 
     .hero h2 {
         font-size: 1.1rem;
+        margin-top: 2rem; /* Added top margin to create space after title */
     }
 
     .floating-whatsapp {
