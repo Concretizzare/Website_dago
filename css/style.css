@@ -104,6 +104,8 @@ body {
     flex-direction: column;
     cursor: pointer;
     z-index: 1001; /* Ensure it's above nav-links */
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: scaleX(-1); /* Always horizontally flipped */
 }
 
 .navbar .hamburger div {
@@ -111,7 +113,8 @@ body {
     height: 3px;
     background: var(--white);
     margin: 4px 0;
-    transition: all var(--transition);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 3px;
 }
 
 /* Navigation Links Styling */
@@ -151,16 +154,20 @@ body {
     z-index: 1002;
 }
 
+/* Style for active hamburger without flip animation */
 .hamburger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    width: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hamburger.active div:nth-child(2) {
-    opacity: 0;
+    width: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hamburger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    width: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Hero Section Styling */
@@ -1401,6 +1408,21 @@ textarea.form-control {
     .storia,
     .contact {
         padding: 3rem 1rem;
+    }
+
+    /* Make the hamburger more visible and clickable */
+    .navbar .hamburger {
+        display: flex;
+        padding: 10px;
+        margin-right: 5px;
+    }
+    
+    .navbar .hamburger:active {
+        transform: scaleX(-1) scale(0.95); /* Keep horizontally flipped when pressed */
+    }
+    
+    .navbar .hamburger.active:active {
+        transform: scaleX(-1) scale(0.95); /* Keep horizontally flipped when active and pressed */
     }
 }
 
